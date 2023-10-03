@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('rule_jurusans', function (Blueprint $table) {
             $table->id();
-            $table->string('KodeJurusan', 5);
-            $table->foreign('KodeJurusan')->references('KodeJurusan')->on('jurusans');
+            $table->string('kode_jurusan', 5);
+            $table->foreign('kode_jurusan')->references('kode_jurusan')->on('jurusans');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jurusans', function (Blueprint $table) {
-            $table->string('KodeJurusan', 5)->primary();
-            $table->string('NamaJurusan', 255);
+            $table->string('kode_jurusan', 5)->primary();
+            $table->string('nama_jurusan', 255);
             $table->timestamps();
             $table->softDeletes();
         });

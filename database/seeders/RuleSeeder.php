@@ -27,13 +27,13 @@ class RuleSeeder extends Seeder
 
         foreach ($rules as $rule) {
             $ruleJurusan = new RuleJurusan();
-            $ruleJurusan->KodeJurusan = $rule['KodeJurusan'];
+            $ruleJurusan->kode_jurusan = $rule['KodeJurusan'];
             $ruleJurusan->save();
 
             foreach ($rule['Faktas'] as $fakta) {
                 $ruleDetail = new RuleDetail();
-                $ruleDetail->RuleID = $ruleJurusan->id;
-                $ruleDetail->KodeFakta = $fakta;
+                $ruleDetail->rule_id = $ruleJurusan->id;
+                $ruleDetail->kode_fakta = $fakta;
                 $ruleDetail->save();
             }
         }

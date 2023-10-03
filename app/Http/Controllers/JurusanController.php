@@ -12,7 +12,8 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        //
+        $jurusans = Jurusan::with(['rule_jurusan.rule_details.fakta'])->paginate(10);
+        return view('jurusan.index', compact('jurusans'));
     }
 
     /**
@@ -34,9 +35,13 @@ class JurusanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Jurusan $jurusan)
+    public function show(string $kode)
     {
-        //
+        $jurusan = Jurusan::where('kode_jurusan', $kode)->first();
+        if (!$jurusan) {
+            return redirect()->route('jurusan.index')->with('error', 'Jurusan not found!');
+        }
+        return view('jurusan.show', compact('jurusan'));
     }
 
     /**

@@ -25,8 +25,8 @@ class JurusanSeeder extends Seeder
 
         foreach ($jurusans as $jurusanData) {
             $jurusan = new Jurusan();
-            $jurusan->KodeJurusan = $jurusanData['KodeJurusan'];
-            $jurusan->NamaJurusan = $jurusanData['NamaJurusan'];
+            $jurusan->kode_jurusan = $jurusanData['KodeJurusan'];
+            $jurusan->nama_jurusan = $jurusanData['NamaJurusan'];
             $jurusan->save();
         }
     }

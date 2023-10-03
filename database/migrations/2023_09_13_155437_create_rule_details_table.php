@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('rule_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('RuleID');
-            $table->string('KodeFakta', 5);
-            $table->foreign('RuleID')->references('id')->on('rule_jurusans')->onDelete('cascade');
-            $table->foreign('KodeFakta')->references('KodeFakta')->on('faktas');
+            $table->unsignedBigInteger('rule_id');
+            $table->string('kode_fakta', 5);
+            $table->foreign('rule_id')->references('id')->on('rule_jurusans')->onDelete('cascade');
+            $table->foreign('kode_fakta')->references('kode_fakta')->on('faktas');
             $table->timestamps();
             $table->softDeletes();
         });
