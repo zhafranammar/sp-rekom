@@ -12,14 +12,14 @@ class Fakta extends Model
 
     protected $table = 'faktas';
 
-    protected $primaryKey = 'KodeFakta';
+    protected $primaryKey = 'kode_fakta';
 
     public $incrementing = false;
 
     protected $keyType = 'string';
 
     protected $fillable = [
-        'KodeFakta',
-        'Deskripsi',
+        'kode_fakta',
+        'deskripsi',
     ];
 }

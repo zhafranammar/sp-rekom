@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaktaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JurusanController;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('jurusan', JurusanController::class);
+Route::resource('fakta', FaktaController::class);
 require __DIR__ . '/auth.php';

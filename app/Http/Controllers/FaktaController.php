@@ -12,7 +12,8 @@ class FaktaController extends Controller
      */
     public function index()
     {
-        //
+        $faktas = Fakta::paginate(10);
+        return view('fakta.index', compact('faktas'));
     }
 
     /**
@@ -20,7 +21,7 @@ class FaktaController extends Controller
      */
     public function create()
     {
-        //
+        return view('fakta.create');
     }
 
     /**
@@ -28,7 +29,17 @@ class FaktaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+    		'kode_fakta' => 'required',
+    		'deskripsi' => 'required'
+    	]);
+ 
+        Fakta::create([
+    		'kode_fakta' => $request->kode_fakta,
+    		'deskripsi' => $request->deskripsi
+    	]);
+ 
+    	return redirect()->route('fakta.index')->with('succes', 'Fakta added successfully.');
     }
 
     /**
@@ -42,24 +53,34 @@ class FaktaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Fakta $fakta)
+    public function edit(string $kode_fakta)
     {
-        //
+        $fakta = Fakta::findOrFail($kode_fakta);
+        return view('fakta.edit', compact('fakta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Fakta $fakta)
+    public function update(Request $request, string $kode_fakta)
     {
-        //
+        $request->validate([
+            'kode_fakta' => 'required',
+    		'deskripsi' => 'required'
+        ]);
+
+        $fakta = Fakta::findOrFail($kode_fakta);
+        $fakta->update($request->all());
+        return redirect()->route('fakta.index')->with('succes', 'Fakta updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Fakta $fakta)
+    public function destroy(string $kode_fakta)
     {
-        //
+        $fakta = Fakta::findOrFail($kode_fakta);
+        $fakta->delete();
+        return redirect()->route('fakta.index')->with('succes', 'Fakta deleted successfully.');
     }
 }
