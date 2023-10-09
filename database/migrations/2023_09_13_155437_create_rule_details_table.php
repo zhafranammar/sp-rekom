@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('rule_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('rule_id');
+            $table->string('kode_jurusan', 5);
             $table->string('kode_fakta', 5);
-            $table->foreign('rule_id')->references('id')->on('rule_jurusans')->onDelete('cascade');
+            $table->foreign('kode_jurusan')->references('kode_jurusan')->on('jurusans');
             $table->foreign('kode_fakta')->references('kode_fakta')->on('faktas');
             $table->timestamps();
             $table->softDeletes();

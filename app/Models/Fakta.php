@@ -22,4 +22,9 @@ class Fakta extends Model
         'kode_fakta',
         'deskripsi',
     ];
+
+    public function ruleDetails()
+    {
+        return $this->hasMany(RuleDetail::class, 'kode_fakta', 'kode_fakta');
+    }
 }

@@ -6,21 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class RuleDetail extends Model
+class TestDetail extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'rule_details';
+    protected $table = 'tests';
 
     protected $fillable = [
-        'rule_id',
+        'test_id',
         'kode_fakta',
-        'kode_jurusan'
+        'is_true'
     ];
 
-    public function jurusan()
+    public function test()
     {
-        return $this->belongsTo(Jurusan::class, 'kode_jurusan', 'kode_jurusan');
+        return $this->belongsTo(Test::class);
     }
 
     public function fakta()

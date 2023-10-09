@@ -24,10 +24,8 @@
                             <tr>
                                 <td class="px-6 py-4 font-bold">Fakta</td>
                                 <td class="px-6 py-4">
-                                    @foreach($jurusan->rule_jurusan as $ruleJurusan)
-                                        @foreach($ruleJurusan->rule_details as $ruleDetail)
-                                            {{ $ruleDetail->fakta->deskripsi }}<br>
-                                        @endforeach
+                                    @foreach($jurusan->ruleDetails as $ruleDetail)
+                                        {{ $ruleDetail->fakta->deskripsi }}<br>
                                     @endforeach
                                 </td>
                             </tr>

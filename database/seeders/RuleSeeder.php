@@ -26,15 +26,11 @@ class RuleSeeder extends Seeder
         ];
 
         foreach ($rules as $rule) {
-            $ruleJurusan = new RuleJurusan();
-            $ruleJurusan->kode_jurusan = $rule['KodeJurusan'];
-            $ruleJurusan->save();
-
             foreach ($rule['Faktas'] as $fakta) {
-                $ruleDetail = new RuleDetail();
-                $ruleDetail->rule_id = $ruleJurusan->id;
-                $ruleDetail->kode_fakta = $fakta;
-                $ruleDetail->save();
+                RuleDetail::create([
+                    'kode_jurusan' => $rule['KodeJurusan'],
+                    'kode_fakta' => $fakta
+                ]);
             }
         }
 

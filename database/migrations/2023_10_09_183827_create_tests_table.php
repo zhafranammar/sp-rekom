@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rule_jurusans', function (Blueprint $table) {
+        Schema::create('tests', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_jurusan', 5);
-            $table->foreign('kode_jurusan')->references('kode_jurusan')->on('jurusans');
+            $table->string('nama');
+            $table->string('kelas');
+            $table->text('hasil');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rule_jurusans');
+        Schema::dropIfExists('tests');
     }
 };

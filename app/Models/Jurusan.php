@@ -12,19 +12,19 @@ class Jurusan extends Model
 
     protected $table = 'jurusans';
 
-    protected $primaryKey = 'KodeJurusan';
+    protected $primaryKey = 'kode_jurusan';
 
     public $incrementing = false;
 
     protected $keyType = 'string';
 
     protected $fillable = [
-        'KodeJurusan',
-        'NamaJurusan',
+        'kode_jurusan',
+        'nama_jurusan',
     ];
 
-    public function rule_jurusan()
+    public function ruleDetails()
     {
-        return $this->hasMany(RuleJurusan::class, 'kode_jurusan', 'kode_jurusan');
+        return $this->hasMany(RuleDetail::class, 'kode_jurusan', 'kode_jurusan');
     }
 }
