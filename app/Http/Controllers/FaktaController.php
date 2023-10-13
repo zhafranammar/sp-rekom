@@ -10,9 +10,25 @@ class FaktaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $faktas = Fakta::paginate(10);
+        $query = Fakta::query();
+
+        // Search logic
+        if ($request->has('search') && !empty($request->search)) {
+            $searchTerm = '%' . $request->search . '%';
+            $query->where('deskripsi', 'like', $searchTerm)->orWhere('kode_fakta', 'like', $searchTerm);
+        }
+        
+        // Sort logic
+        if ($request->has('sort')) {
+            $direction = $request->has('direction') ? $request->direction : 'desc';
+            $query->orderBy($request->sort, $direction);
+        } else {
+            $query->latest(); // Default sorting
+        }
+        
+        $faktas = $query->paginate(10);
         return view('fakta.index', compact('faktas'));
     }
 
