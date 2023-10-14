@@ -13,7 +13,10 @@
                         <thead>
                             <tr>
                                 <th class="px-6 py-3 bg-gray-50">Nama</th>
-                                <th class="px-6 py-3 bg-gray-50">Kelas</th>
+                                <th class="px-6 py-3 bg-gray-50">Usia</th>
+                                <th class="px-6 py-3 bg-gray-50">Jenis Kelamin</th>
+                                <th class="px-6 py-3 bg-gray-50">Hasil</th>
+                                <th class="px-6 py-3 bg-gray-50">Tanggal Test</th>
                                 <th class="px-6 py-3 bg-gray-50">Actions</th>
                             </tr>
                         </thead>
@@ -21,7 +24,10 @@
                             @foreach($tests as $test)
                             <tr>
                                 <td class="px-6 py-4">{{ $test->nama }}</td>
-                                <td class="px-6 py-4">{{ $test->kelas }}</td>
+                                <td class="px-6 py-4">{{ $test->usia }}</td>
+                                <td class="px-6 py-4">{{ $test->jenis_kelamin }}</td>
+                                <td class="px-6 py-4">{{ $test->hasil }}</td>
+                                <td class="px-6 py-4">{{ $test->created_at }}</td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('admin.test.show', $test->id) }}" class="text-blue-500">View</a>
                                 </td>

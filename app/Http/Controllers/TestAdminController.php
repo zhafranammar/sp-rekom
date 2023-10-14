@@ -25,10 +25,10 @@ class TestAdminController extends Controller
         return redirect()->route('admin.test.index')->with('success', 'Test created successfully!');
     }
 
-    public function edit($id)
+    public function show($id)
     {
-        $test = Test::findOrFail($id);
-        return view('admin.test.edit', compact('test'));
+        $test = Test::with('details.fakta')->findOrFail($id);
+        return view('admin.test.show', compact('test'));
     }
 
     public function destroy($id)

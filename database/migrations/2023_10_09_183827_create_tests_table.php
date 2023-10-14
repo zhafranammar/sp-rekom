@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kelas');
-            $table->text('hasil');
+            $table->string('jenis_kelamin');
+            $table->integer('usia');
+            $table->text('hasil')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

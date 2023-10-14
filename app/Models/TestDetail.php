@@ -10,7 +10,7 @@ class TestDetail extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'tests';
+    protected $table = 'test_details';
 
     protected $fillable = [
         'test_id',
