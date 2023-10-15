@@ -18,8 +18,12 @@
                                 <td class="px-6 py-4">{{ $test->nama }}</td>
                             </tr>
                             <tr>
-                                <td class="px-6 py-4 font-bold">Kelas</td>
-                                <td class="px-6 py-4">{{ $test->kelas }}</td>
+                                <td class="px-6 py-4 font-bold">Usia</td>
+                                <td class="px-6 py-4">{{ $test->usia }}</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-bold">Jenis Kelamin</td>
+                                <td class="px-6 py-4">{{ $test->jenis_kelamin }}</td>
                             </tr>
                             <tr>
                                 <td class="px-6 py-4 font-bold">Hasil</td>

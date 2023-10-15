@@ -41,7 +41,8 @@ Route::get('/admin/test/{id}', [TestAdminController::class, 'show'])->name('admi
 // Routes for the user
 Route::get('/test/start', [TestController::class, 'start'])->name('test.start');
 Route::post('/test/submit', [TestController::class, 'submit'])->name('test.submit');
-Route::get('/test/result', [TestController::class, 'result'])->name('test.result');
+Route::get('/test/result/{id}', [TestController::class, 'result'])->name('test.result');
+Route::get('/get-certificate/{id}', [TestController::class, 'generateCertificate'])->name('get.certificate');
 
 
 
