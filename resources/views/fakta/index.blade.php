@@ -1,28 +1,31 @@
     <x-app-layout>
-
+        <x-slot name="header">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
+                {{ __('Data Fakta') }}
+            </h2>
+        </x-slot>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="flex flex-col md:flex-row justify-between mb-4 font-roboto">
-                        <!-- Tambah Data Button -->
-                        <a href="{{ route('fakta.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 md:mb-0 flex items-center">
-                            <span class="material-symbols-outlined mr-4"> 
-                                add   
-                            </span> Tambah Data
-                        </a>
+                            <!-- Tambah Data Button -->
+                            <a href="{{ route('fakta.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 md:mb-0 flex items-center">
+                                <span class="material-symbols-outlined mr-4"> 
+                                    add   
+                                </span> Tambah Data
+                            </a>
 
-                        <!-- Search -->
+                            <!-- Search -->
 
-                        <form method="GET" action="{{ route('fakta.index') }}" class="flex w-full md:w-auto">
-                            <input type="text" name="search" placeholder="Search" value="{{ request('search') }}" class="p-2 border rounded-l w-full md:w-auto md:ml-2">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r flex items-center">
-                                <span class="material-symbols-outlined mr-2">
-                                    search
-                                </span> Search
-                            </button>
-                        </form>
-
+                            <form method="GET" action="{{ route('fakta.index') }}" class="flex w-full md:w-auto">
+                                <input type="text" name="search" placeholder="Search" value="{{ request('search') }}" class="p-2 border rounded-l w-full md:w-auto md:ml-2">
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r flex items-center">
+                                    <span class="material-symbols-outlined mr-2">
+                                        search
+                                    </span> Search
+                                </button>
+                            </form>
                         </div>
                         <!-- Table -->
                         <table class="min-w-full divide-y divide-gray-200">

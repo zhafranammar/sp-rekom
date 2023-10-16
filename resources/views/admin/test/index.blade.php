@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('All Tests') }}
+        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
+            {{ __('Data Tests') }}
         </h2>
     </x-slot>
 
@@ -9,8 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="p-6 bg-white border-b border-gray-200 flex justify-between">
-                        <form method="GET" action="{{ route('admin.test.index') }}" class="flex w-1/2 md:w-auto">
+                    <div class="flex flex-col md:flex-row justify-between mb-4 font-roboto">
+
+                        <!-- Search Form -->
+                        <form method="GET" action="{{ route('admin.test.index') }}" class="flex w-full md:w-auto mb-2 md:mb-0">
                             <input type="text" name="search" placeholder="Search" value="{{ request('search') }}" class="p-2 border rounded-l w-full md:w-auto md:ml-2">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r flex items-center">
                                 <span class="material-symbols-outlined mr-2">
@@ -19,7 +21,8 @@
                             </button>
                         </form>
 
-                        <form method="GET" action="{{ route('admin.test.index') }}" class="flex w-1/2 md:w-auto justify-end">
+                        <!-- Date Filter Form -->
+                        <form method="GET" action="{{ route('admin.test.index') }}" class="flex w-full md:w-auto">
                             <input type="date" name="start_date" placeholder="Start Date" value="{{ request('start_date') }}" class="p-2 border rounded-l w-full md:w-auto md:ml-2">
                             <input type="date" name="end_date" placeholder="End Date" value="{{ request('end_date') }}" class="p-2 border rounded-l w-full md:w-auto md:ml-2">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r flex items-center">
@@ -28,6 +31,8 @@
                                 </span> Filter
                             </button>
                         </form>
+                        
+                    
                     </div>
 
                     <table class="min-w-full divide-y divide-gray-200">
