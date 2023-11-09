@@ -67,8 +67,16 @@
                             </div>
                         </div>
 
-                        <!-- Slide for Usia -->
+                        <!-- Slide for Nis -->
                         <div x-show="slide === 1" x-ref="slide1" class="carousel-slide">
+                            <h5 class="text-center mb-4">Masukkan NIS Anda</h5>
+                            <div class="text-center">
+                                <input type="text" name="nis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                            </div>
+                        </div>    
+
+                        <!-- Slide for Usia -->
+                        <div x-show="slide === 2" x-ref="slide2" class="carousel-slide">
                             <h5 class="text-center mb-4">Masukkan Usia Anda</h5>
                             <div class="text-center">
                                 <input type="number" name="usia" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Usia" required>
@@ -76,7 +84,7 @@
                         </div>
 
                         <!-- Slide for Jenis Kelamin -->
-                        <div x-show="slide === 2" x-ref="slide2" class="carousel-slide">
+                        <div x-show="slide === 3" x-ref="slide3" class="carousel-slide">
                             <h5 class="text-center mb-4">Pilih Jenis Kelamin Anda</h5>
                             <div class="text-center">
                                 <select name="jenis_kelamin" class="border p-2 rounded mb-3 w-full" required>
@@ -89,7 +97,7 @@
 
                         <!-- Slides for Fakta -->
                         @foreach($fakta as $index => $fact)
-                            <div x-show="slide === {{ $index + 3 }}" x-ref="slide{{ $index + 3 }}" class="carousel-slide">
+                            <div x-show="slide === {{ $index + 4 }}" x-ref="slide{{ $index + 4 }}" class="carousel-slide">
                                 <h5 class="text-center mb-4">{{ $fact->deskripsi }}</h5>
                                 <div class="text-center">
                                     <label class="inline-flex items-center mr-3">

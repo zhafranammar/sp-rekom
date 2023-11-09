@@ -14,6 +14,7 @@ class Test extends Model
 
     protected $fillable = [
         'nama',
+        'nis',
         'usia',
         'jenis_kelamin',
         'hasil'

@@ -16,8 +16,6 @@
                             </span> Tambah Data
                         </a>
 
-                        
-
                         <!-- Search Form -->
                         <form method="GET" action="{{ route('jurusan.index') }}" class="flex w-full md:w-auto">
                             <input type="text" name="search" placeholder="Search" value="{{ request('search') }}" class="p-2 border rounded-l w-full md:w-auto md:ml-2">
@@ -28,7 +26,6 @@
                             </button>
                         </form>
                     </div>
-
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>

@@ -26,12 +26,13 @@ class TestController extends Controller
         // Membuat entry test baru
         $test = Test::create([
             'nama' => $request->nama,
+            'nis' => $request->nis,
             'usia' => $request->usia,
             'jenis_kelamin' => $request->jenis_kelamin
         ]);
 
         // Filter data request untuk mengambil hanya data fakta
-        $faktaData = $request->except(['_token', 'nama', 'usia', 'jenis_kelamin']);
+        $faktaData = $request->except(['_token', 'nama', 'nis', 'usia', 'jenis_kelamin']);
         // dd($faktaData);
         foreach ($faktaData as $kode_fakta => $isTrue) {
             // dd($kode_fakta, $isTrue, $test);
@@ -163,6 +164,10 @@ class TestController extends Controller
                 <tr>
                     <th>Nama</th>
                     <td>' . $test->nama . '</td>
+                </tr>
+                <tr>
+                    <th>NIS</th>
+                    <td>' . $test->nis . '</td>
                 </tr>
                 <tr>
                     <th>Usia</th>
